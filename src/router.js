@@ -3,7 +3,7 @@ import { fetchText } from './utils.js';
 export function setupRouter() {
   document.addEventListener('click', async (event) => {
     const anchor = event.target.closest('a');
-    if (anchor) {
+    if (anchor && isInternalUrl(anchor.href)) {
       event.preventDefault();
       fetchAndLoad(anchor.href);
       updatePath(anchor.href);
@@ -12,6 +12,10 @@ export function setupRouter() {
   window.addEventListener('popstate', () => {
     fetchAndLoad(location.href);
   });
+}
+
+function isInternalUrl(url) {
+  return url.startsWith('/') || url.startsWith(location.origin);
 }
 
 async function fetchAndLoad(path) {
