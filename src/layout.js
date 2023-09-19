@@ -2,7 +2,7 @@ import { fetchText } from './utils.js';
 
 export async function loadLayout() {
   hideDocument();
-  const layoutString = await fetchText('/layout.html');
+  const layoutString = await fetchText('/_layout.html');
   const htmlString = interpolateContent(layoutString);
   rewriteDocument(htmlString);
   showDocument();
