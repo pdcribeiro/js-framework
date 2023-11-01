@@ -1,4 +1,4 @@
-import { fetchText } from './utils.js';
+import { fetchText } from '/lib/misc.js';
 
 export async function loadLayout() {
   hideDocument();

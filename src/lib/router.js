@@ -1,4 +1,4 @@
-import { fetchText } from './utils.js';
+import { fetchText } from '/lib/misc.js';
 
 export function setupRouter() {
   document.addEventListener('click', async (event) => {
